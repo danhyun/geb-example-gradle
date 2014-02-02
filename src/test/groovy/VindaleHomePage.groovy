@@ -20,21 +20,25 @@ class VindaleHomePage extends Page {
             $('form[name="surveyForm"]')
         }
 
-        genders {
-            form.find('input[name="gender"]')
-        }
-
-        yearOfBirth {
-            form.find('input[name="yearOfBirth"]')
-        }
-
-        postalCode {
-            form.find('input[name="addressZip"]')
-        }
-
-        submitButton {
-            form.find('input[type="image"]')
-        }
+    genders {
+        form.find('input[name="gender"]')
     }
+
+    yearOfBirth {
+        form.find('input[name="yearOfBirth"]')
+    }
+
+    postalCode {
+        form.find('input[name="addressZip"]')
+    }
+
+    submitButton {
+        form.find('input[type="image"]')
+    }
+
+    privacyPolicy {
+        module FooterModule
+    }
+}
 
 }

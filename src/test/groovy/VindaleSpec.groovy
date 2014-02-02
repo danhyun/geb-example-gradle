@@ -26,9 +26,13 @@ class VindaleSpec extends GebReportingSpec {
         yearOfBirth = randomValidYear
         report "random year"
 
-        assert withAlert { submitButton.click() } == "Please complete the following fields:\n\n - Zip/Postal Code\n"
+        assert withAlert {
+            submitButton.click()
+            report "confirm alert"
+        } == "Please complete the following fields:\n\n - Zip/Postal Code\n"
 
         then:
+        privacyPolicy.text contains "We will be updating our Privacy Policy on March 1, 2014."
         waitFor {
             at VindaleHomePage
         }
