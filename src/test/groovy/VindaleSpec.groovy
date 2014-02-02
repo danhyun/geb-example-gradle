@@ -6,6 +6,34 @@ import geb.spock.*
 
 class VindaleSpec extends GebReportingSpec {
 
+    @Unroll
+    def "Test #genderIndex and year #yearOfBirthValue" () {
+
+        when:
+        to VindaleClearPage
+
+        and:
+        at VindaleHomePage
+
+        and:
+        genders[genderIndex].click()
+        yearOfBirth << yearOfBirthValue
+
+        then:
+        yearOfBirth.val()
+        report "birthday"
+
+        where:
+        genderIndex | yearOfBirthValue
+        1           | randomValidYear
+        0           | randomValidYear
+        1           | randomValidYear
+        0           | randomValidYear
+        1           | randomValidYear
+        0           | randomValidYear
+
+    }
+
     def "Make sure vindale loads and has required fields" () {
 
         when:
